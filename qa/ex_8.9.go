@@ -49,6 +49,7 @@ var done = make(chan struct{})
 func cancelled() bool {
 	select {
 	case <-done:
+		fmt.Println("true")
 		return true
 	default:
 		return false
@@ -100,7 +101,6 @@ loop:
 		}
 	}
 	printDiskUsage(nfiles, nbytes)
-	panic("test")
 }
 
 func printDiskUsage(nfiles, nbytes int64) {
